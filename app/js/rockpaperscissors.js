@@ -68,19 +68,27 @@ function getWinner(playerMove,computerMove) {
             break;
         case (playerMove === 'scissors' && computerMove === 'paper'):
             winner = 'player';
-            break;
-        default:
-            alert("That is not a valid option. Please select rock, paper, or scissors!");
     }
     return winner;
 }
 
-function playToFive() {
+function playToFive(playerMove, computerMove) {
     console.log("Let's play Rock, Paper, Scissors");
     var playerWins = 0;
     var computerWins = 0;
     // Write code that plays 'Rock, Paper, Scissors' until either the player or the computer has won five times.
     /* YOUR CODE HERE */
+    while (playerWins <= 5 || computerWins <= 5){
+        console.log('Player chose ' + playerMove + ' while Computer chose ' + computerMove)
+        getWinner(playerMove, computerMove);
+        if (winner === 'computer'){
+            computerWins += 1;
+            console.log('The score is currently ' + playerWins + ' to ' + computerWins)
+        } else if (winner === 'player') {
+            playerWins += 1;
+            console.log('The score is currently ' + playerWins + ' to ' + computerWins)
+        } 
+    }
     return [playerWins, computerWins];
 }
 
